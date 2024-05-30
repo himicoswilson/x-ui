@@ -25,9 +25,6 @@ elif cat /proc/version | grep -Eqi "ubuntu"; then
     release="ubuntu"
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
-else
-    echo -e "${red}未检测到系统版本，请联系脚本作者！${plain}\n" && exit 1
-fi
 
 arch=$(arch)
 
@@ -49,7 +46,7 @@ if [ $(getconf WORD_BIT) != '32' ] && [ $(getconf LONG_BIT) != '64' ]; then
     exit -1
 fi
 
-os_version=""
+os_version="debian"
 
 # os version
 if [[ -f /etc/os-release ]]; then
